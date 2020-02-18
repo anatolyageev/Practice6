@@ -10,8 +10,12 @@ import java.util.Scanner;
 
 public class Part1 {
 
-	public static void main(String[] args) throws UnsupportedEncodingException {
-		System.setIn(new ByteArrayInputStream("asd 43 asdf asd 43\n434 asdf kasdf asdf stop".getBytes("cp1251")));
+	public static void main(String[] args)  {
+		try {
+			System.setIn(new ByteArrayInputStream("asd 43 asdf asd 43\n434 asdf kasdf asdf stop".getBytes("cp1251")));
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		Scanner sc = new Scanner(System.in);
 		WordContainer wl = new WordContainer();
 		while(sc.hasNext()){

@@ -1,13 +1,34 @@
 package ua.nure.ageev.practice6.part1;
 
 public class Word implements Comparable {
-
+	static Integer count=0;
+	private Integer place;
 	private String word;
 	private int frequency;
+	private boolean part61Flag;
+
 
 	public Word(String word) {
 		this.word = word;
 		frequency = 1;
+	}
+
+	public  Integer getPlace() {
+		return this.place;
+	}
+
+	public Word(String word, Long frequency) {
+		this.word = word;
+		this.frequency = frequency.intValue();
+		this.part61Flag = true;
+	}
+
+	public Word(String word, Integer length){
+		this.word = word;
+		this.frequency = length;
+		this.part61Flag = true;
+		count ++;
+		place=count;
 	}
 
 	public void frequencyIncrement(){
@@ -49,7 +70,7 @@ public class Word implements Comparable {
 
 	@Override
 	public String toString() {
-		return word + " : " + frequency;
+		return part61Flag ? word + " ==> " + frequency : word + " : " + frequency;
 	}
 
 	@Override
